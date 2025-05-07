@@ -41,8 +41,11 @@ void parse_flight() {
     if (is_cargo)
         printf("%s\n", flight_num);
 
-    if (is_morning) before_noon++;
-    else after_noon++;
+    if (is_morning && !is_cargo) {
+        before_noon++;
+    } else if (!is_cargo) {
+        after_noon++;
+    }
 }
 
 void parse_flights_list() {
